@@ -1,4 +1,4 @@
-package com.mycompany.maliciouslinkchecker
+package com.mycompany.safeker
 
 import io.flutter.embedding.android.FlutterActivity
 

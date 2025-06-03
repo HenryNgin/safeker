@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>Malicious Link Checker</string>
+	<string>SafeKer</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -13,7 +13,7 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>Malicious Link Checker</string>
+	<string>SafeKer</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 
@@ -26,10 +26,10 @@
         <key>CFBundleTypeRole</key>
         <string>Editor</string>
         <key>CFBundleURLName</key>
-        <string>maliciouslinkchecker.com</string>
+        <string>safeker.com</string>
         <key>CFBundleURLSchemes</key>
         <array>
-        <string>maliciouslinkchecker</string>
+        <string>safeker</string>
         </array>
         </dict>
     </array>

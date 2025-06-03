@@ -1,4 +1,4 @@
-name: malicious_link_checker
+name: safe_ker
 description: A new Flutter project.
 
 # The following line prevents the package from being accidentally published to
@@ -32,7 +32,9 @@ dependencies:
   cached_network_image_platform_interface: 4.1.1
   cached_network_image_web: 1.3.1
   collection: 1.19.0
+  easy_debounce: 2.0.1
   equatable: 2.0.5
+  floating_bottom_navigation_bar: 1.5.2
   flutter_animate: 4.5.0
   flutter_cache_manager: 3.4.1
   font_awesome_flutter: 10.7.0

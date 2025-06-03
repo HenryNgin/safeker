@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '/main.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
@@ -44,7 +45,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 ),
               ),
             )
-          : HomePageWidget(),
+          : NavBarPage(),
       routes: [
         FFRoute(
           name: '_initialize',
@@ -59,13 +60,50 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                     ),
                   ),
                 )
-              : HomePageWidget(),
+              : NavBarPage(),
         ),
         FFRoute(
           name: HomePageWidget.routeName,
           path: HomePageWidget.routePath,
           builder: (context, params) => HomePageWidget(),
-        )
+        ),
+        FFRoute(
+          name: LinkCheckPageWidget.routeName,
+          path: LinkCheckPageWidget.routePath,
+          builder: (context, params) => LinkCheckPageWidget(),
+        ),
+        FFRoute(
+          name: PwdCheckPageWidget.routeName,
+          path: PwdCheckPageWidget.routePath,
+          builder: (context, params) => PwdCheckPageWidget(),
+        ),
+        FFRoute(
+            name: CheckHistoryPageWidget.routeName,
+            path: CheckHistoryPageWidget.routePath,
+            builder: (context, params) => params.isEmpty
+                ? NavBarPage(initialPage: 'CheckHistoryPage')
+                : NavBarPage(
+                    initialPage: 'CheckHistoryPage',
+                    page: CheckHistoryPageWidget(),
+                  )),
+        FFRoute(
+            name: URLCheckPageNEWWidget.routeName,
+            path: URLCheckPageNEWWidget.routePath,
+            builder: (context, params) => params.isEmpty
+                ? NavBarPage(initialPage: 'URLCheckPageNEW')
+                : NavBarPage(
+                    initialPage: 'URLCheckPageNEW',
+                    page: URLCheckPageNEWWidget(),
+                  )),
+        FFRoute(
+            name: PwdCheckPageNEWWidget.routeName,
+            path: PwdCheckPageNEWWidget.routePath,
+            builder: (context, params) => params.isEmpty
+                ? NavBarPage(initialPage: 'PwdCheckPageNEW')
+                : NavBarPage(
+                    initialPage: 'PwdCheckPageNEW',
+                    page: PwdCheckPageNEWWidget(),
+                  ))
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
 
