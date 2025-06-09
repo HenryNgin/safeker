@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1010176945561",
+    "project_id": "nacsa-prototype",
+    "storage_bucket": "nacsa-prototype.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1010176945561:android:b323e19103bf831a0b3708",
+        "android_client_info": {
+          "package_name": "com.mycompany.safeker"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBqdel6BypzkdXGB9e0o-9YXCfAladnvIA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

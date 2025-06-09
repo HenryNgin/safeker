@@ -87,18 +87,21 @@ class VirusTotalCheckCall {
   static Future<ApiCallResponse> call({
     String? urlInput = '',
   }) async {
+    final ffApiRequestBody = '''
+{
+  "url": "${escapeStringForJson(urlInput)}"
+}''';
     return ApiManager.instance.makeApiCall(
       callName: 'VirusTotalCheck',
       apiUrl: 'https://www.virustotal.com/api/v3/urls',
       callType: ApiCallType.POST,
       headers: {
         '{   x-apikey':
-            '82bc72ca00d248848b8e87bc975ae1a392605c58b7d1da0a284834c7ff78aaca,   Content-Type: application/x-www-form-urlencoded }',
+            '82bc72ca00d248848b8e87bc975ae1a392605c58b7d1da0a284834c7ff78aaca }',
       },
-      params: {
-        'url': urlInput,
-      },
-      bodyType: BodyType.X_WWW_FORM_URL_ENCODED,
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
@@ -110,16 +113,97 @@ class VirusTotalCheckCall {
 }
 
 class GetScanResultCall {
-  static Future<ApiCallResponse> call() async {
+  static Future<ApiCallResponse> call({
+    String? scanid = '',
+  }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'GetScanResult',
-      apiUrl: 'https://www.virustotal.com/api/v3/analyses/{id}',
+      apiUrl:
+          'https://us-central1-nacsa-prototype.cloudfunctions.net/api/getResult/${scanid}',
       callType: ApiCallType.GET,
+      headers: {},
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static int? maliciousCount(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.data.attributes.stats.malicious''',
+      ));
+  static int? suspiciousCount(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.data.attributes.stats.suspicious''',
+      ));
+  static int? undetectedCount(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.data.attributes.stats.undetected''',
+      ));
+  static int? harmlessCount(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.data.attributes.stats.harmless''',
+      ));
+  static String? scanStatus(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.data.attributes.status''',
+      ));
+}
+
+class ScanUrlCall {
+  static Future<ApiCallResponse> call({
+    String? url = '',
+  }) async {
+    final ffApiRequestBody = '''
+{
+  "url": "${escapeStringForJson(url)}"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'scanUrl',
+      apiUrl:
+          'https://us-central1-nacsa-prototype.cloudfunctions.net/api/scanUrl',
+      callType: ApiCallType.POST,
       headers: {
-        '{   x-apikey':
-            '82bc72ca00d248848b8e87bc975ae1a392605c58b7d1da0a284834c7ff78aaca }',
+        'Content-Type': 'application/json',
       },
       params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static String? scanid(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.data.id''',
+      ));
+}
+
+class GetResultCall {
+  static Future<ApiCallResponse> call({
+    String? scanId = '',
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'getResult',
+      apiUrl: 'https://www.virustotal.com/api/v3/analyses/',
+      callType: ApiCallType.GET,
+      headers: {
+        '{  x-apikey':
+            '82bc72ca00d248848b8e87bc975ae1a392605c58b7d1da0a284834c7ff78aaca }',
+      },
+      params: {
+        'scanId': scanId,
+      },
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,

@@ -78,22 +78,18 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => PwdCheckPageWidget(),
         ),
         FFRoute(
-            name: CheckHistoryPageWidget.routeName,
-            path: CheckHistoryPageWidget.routePath,
-            builder: (context, params) => params.isEmpty
-                ? NavBarPage(initialPage: 'CheckHistoryPage')
-                : NavBarPage(
-                    initialPage: 'CheckHistoryPage',
-                    page: CheckHistoryPageWidget(),
-                  )),
+          name: CheckHistoryPageWidget.routeName,
+          path: CheckHistoryPageWidget.routePath,
+          builder: (context, params) => CheckHistoryPageWidget(),
+        ),
         FFRoute(
-            name: URLCheckPageNEWWidget.routeName,
-            path: URLCheckPageNEWWidget.routePath,
+            name: URLCheckPageWidget.routeName,
+            path: URLCheckPageWidget.routePath,
             builder: (context, params) => params.isEmpty
-                ? NavBarPage(initialPage: 'URLCheckPageNEW')
+                ? NavBarPage(initialPage: 'URLCheckPage')
                 : NavBarPage(
-                    initialPage: 'URLCheckPageNEW',
-                    page: URLCheckPageNEWWidget(),
+                    initialPage: 'URLCheckPage',
+                    page: URLCheckPageWidget(),
                   )),
         FFRoute(
             name: PwdCheckPageNEWWidget.routeName,
@@ -103,7 +99,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 : NavBarPage(
                     initialPage: 'PwdCheckPageNEW',
                     page: PwdCheckPageNEWWidget(),
-                  ))
+                  )),
+        FFRoute(
+          name: URLCheckPageNEWCopyWidget.routeName,
+          path: URLCheckPageNEWCopyWidget.routePath,
+          builder: (context, params) => URLCheckPageNEWCopyWidget(),
+        )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
 

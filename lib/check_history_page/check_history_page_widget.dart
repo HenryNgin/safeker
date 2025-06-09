@@ -50,21 +50,21 @@ class _CheckHistoryPageWidgetState extends State<CheckHistoryPageWidget> {
       },
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        backgroundColor: Color(0xFFFBF9F5),
         appBar: AppBar(
-          backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+          backgroundColor: Color(0xFFFBF9F5),
           automaticallyImplyLeading: false,
           title: Align(
             alignment: AlignmentDirectional(0.0, 0.0),
             child: Text(
-              'Previous Check',
+              'Home',
               style: FlutterFlowTheme.of(context).headlineMedium.override(
-                    font: GoogleFonts.interTight(
+                    font: GoogleFonts.readexPro(
                       fontWeight: FontWeight.w600,
                       fontStyle:
                           FlutterFlowTheme.of(context).headlineMedium.fontStyle,
                     ),
-                    fontSize: 22.0,
+                    fontSize: 24.0,
                     letterSpacing: 0.0,
                     fontWeight: FontWeight.w600,
                     fontStyle:

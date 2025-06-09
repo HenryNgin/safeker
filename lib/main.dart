@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_web_plugins/url_strategy.dart';
+import 'backend/firebase/firebase_config.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import 'flutter_flow/flutter_flow_util.dart';
 import 'package:floating_bottom_navigation_bar/floating_bottom_navigation_bar.dart';
@@ -11,6 +12,8 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   GoRouter.optionURLReflectsImperativeAPIs = true;
   usePathUrlStrategy();
+
+  await initFirebase();
 
   await FlutterFlowTheme.initialize();
 
@@ -106,7 +109,7 @@ class NavBarPage extends StatefulWidget {
 
 /// This is the private State class that goes with NavBarPage.
 class _NavBarPageState extends State<NavBarPage> {
-  String _currentPageName = 'URLCheckPageNEW';
+  String _currentPageName = 'URLCheckPage';
   late Widget? _currentPage;
 
   @override
@@ -119,8 +122,7 @@ class _NavBarPageState extends State<NavBarPage> {
   @override
   Widget build(BuildContext context) {
     final tabs = {
-      'URLCheckPageNEW': URLCheckPageNEWWidget(),
-      'CheckHistoryPage': CheckHistoryPageWidget(),
+      'URLCheckPage': URLCheckPageWidget(),
       'PwdCheckPageNEW': PwdCheckPageNEWWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
@@ -180,31 +182,8 @@ class _NavBarPageState extends State<NavBarPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Icon(
-                  Icons.home_outlined,
-                  color: currentIndex == 1
-                      ? FlutterFlowTheme.of(context).primary
-                      : FlutterFlowTheme.of(context).secondaryText,
-                ),
-                Text(
-                  'Home',
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
-                    color: currentIndex == 1
-                        ? FlutterFlowTheme.of(context).primary
-                        : FlutterFlowTheme.of(context).secondaryText,
-                    fontSize: 11.0,
-                  ),
-                ),
-              ],
-            ),
-          ),
-          FloatingNavbarItem(
-            customWidget: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(
                   Icons.password_rounded,
-                  color: currentIndex == 2
+                  color: currentIndex == 1
                       ? FlutterFlowTheme.of(context).primary
                       : FlutterFlowTheme.of(context).secondaryText,
                 ),
@@ -212,7 +191,7 @@ class _NavBarPageState extends State<NavBarPage> {
                   'PwdCheck',
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
-                    color: currentIndex == 2
+                    color: currentIndex == 1
                         ? FlutterFlowTheme.of(context).primary
                         : FlutterFlowTheme.of(context).secondaryText,
                     fontSize: 11.0,

@@ -59,31 +59,27 @@ class _PwdCheckPageNEWWidgetState extends State<PwdCheckPageNEWWidget> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
-                child: Text(
-                  'Password Strength Checker',
-                  style: FlutterFlowTheme.of(context).headlineMedium.override(
-                        font: GoogleFonts.readexPro(
-                          fontWeight: FontWeight.bold,
-                          fontStyle: FlutterFlowTheme.of(context)
-                              .headlineMedium
-                              .fontStyle,
-                        ),
-                        color: Color(0xFF101518),
-                        fontSize: 24.0,
-                        letterSpacing: 0.0,
+              Text(
+                'Password Check',
+                style: FlutterFlowTheme.of(context).headlineMedium.override(
+                      font: GoogleFonts.readexPro(
                         fontWeight: FontWeight.bold,
                         fontStyle: FlutterFlowTheme.of(context)
                             .headlineMedium
                             .fontStyle,
                       ),
-                ),
+                      color: Color(0xFF101518),
+                      fontSize: 24.0,
+                      letterSpacing: 0.0,
+                      fontWeight: FontWeight.bold,
+                      fontStyle:
+                          FlutterFlowTheme.of(context).headlineMedium.fontStyle,
+                    ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 32.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 16.0),
                 child: Text(
-                  'Check if your password is strong and hasn\'t been leaked online',
+                  'Check if your password is strong and\nhasn\'t been leaked online',
                   textAlign: TextAlign.center,
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         font: GoogleFonts.inter(
@@ -125,22 +121,23 @@ class _PwdCheckPageNEWWidgetState extends State<PwdCheckPageNEWWidget> {
                       children: [
                         Text(
                           'Enter your password',
-                          style:
-                              FlutterFlowTheme.of(context).titleMedium.override(
-                                    font: GoogleFonts.inter(
-                                      fontWeight: FontWeight.w600,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .titleMedium
-                                          .fontStyle,
-                                    ),
-                                    color: Colors.white,
-                                    fontSize: 18.0,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.w600,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .titleMedium
-                                        .fontStyle,
-                                  ),
+                          style: FlutterFlowTheme.of(context)
+                              .titleMedium
+                              .override(
+                                font: GoogleFonts.inter(
+                                  fontWeight: FontWeight.w600,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .titleMedium
+                                      .fontStyle,
+                                ),
+                                color: FlutterFlowTheme.of(context).secondary,
+                                fontSize: 18.0,
+                                letterSpacing: 0.0,
+                                fontWeight: FontWeight.w600,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .titleMedium
+                                    .fontStyle,
+                              ),
                         ),
                         TextFormField(
                           controller: _model.textController,
@@ -148,7 +145,7 @@ class _PwdCheckPageNEWWidgetState extends State<PwdCheckPageNEWWidget> {
                           autofocus: true,
                           obscureText: !_model.passwordVisibility,
                           decoration: InputDecoration(
-                            hintText: 'Type your password here',
+                            hintText: 'Enter your password here',
                             hintStyle: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
@@ -175,27 +172,27 @@ class _PwdCheckPageNEWWidgetState extends State<PwdCheckPageNEWWidget> {
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderSide: BorderSide(
-                                color: Color(0xFF507583),
+                                color: Color(0xFF6F61EF),
                                 width: 1.0,
                               ),
                               borderRadius: BorderRadius.circular(8.0),
                             ),
                             errorBorder: OutlineInputBorder(
                               borderSide: BorderSide(
-                                color: Color(0xFFC4454D),
+                                color: Color(0xFFFF5963),
                                 width: 1.0,
                               ),
                               borderRadius: BorderRadius.circular(8.0),
                             ),
                             focusedErrorBorder: OutlineInputBorder(
                               borderSide: BorderSide(
-                                color: Color(0xFFC4454D),
+                                color: Color(0xFFFF5963),
                                 width: 1.0,
                               ),
                               borderRadius: BorderRadius.circular(8.0),
                             ),
                             filled: true,
-                            fillColor: Color(0xFFFBF9F5),
+                            fillColor: Color(0xFFF1F4F8),
                             contentPadding: EdgeInsetsDirectional.fromSTEB(
                                 16.0, 12.0, 16.0, 12.0),
                             suffixIcon: InkWell(
@@ -302,25 +299,33 @@ class _PwdCheckPageNEWWidgetState extends State<PwdCheckPageNEWWidget> {
                         mainAxisSize: MainAxisSize.max,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
-                            'Password Analysis',
-                            style: FlutterFlowTheme.of(context)
-                                .titleMedium
-                                .override(
-                                  font: GoogleFonts.inter(
-                                    fontWeight: FontWeight.w600,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .titleMedium
-                                        .fontStyle,
-                                  ),
-                                  color: Colors.white,
-                                  fontSize: 18.0,
-                                  letterSpacing: 0.0,
-                                  fontWeight: FontWeight.w600,
-                                  fontStyle: FlutterFlowTheme.of(context)
-                                      .titleMedium
-                                      .fontStyle,
-                                ),
+                          Align(
+                            alignment: AlignmentDirectional(0.0, 0.0),
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 8.0, 0.0, 0.0),
+                              child: Text(
+                                'Password Analysis',
+                                style: FlutterFlowTheme.of(context)
+                                    .titleMedium
+                                    .override(
+                                      font: GoogleFonts.inter(
+                                        fontWeight: FontWeight.w600,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .titleMedium
+                                            .fontStyle,
+                                      ),
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondary,
+                                      fontSize: 18.0,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.w600,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .titleMedium
+                                          .fontStyle,
+                                    ),
+                              ),
+                            ),
                           ),
                           Divider(
                             thickness: 1.0,
@@ -336,7 +341,7 @@ class _PwdCheckPageNEWWidgetState extends State<PwdCheckPageNEWWidget> {
                               ),
                               Expanded(
                                 child: Text(
-                                  'Strength: Weak',
+                                  'Strength:',
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
@@ -369,7 +374,7 @@ class _PwdCheckPageNEWWidgetState extends State<PwdCheckPageNEWWidget> {
                               ),
                               Expanded(
                                 child: Text(
-                                  'Found in 3 data breaches',
+                                  'Found in 3 data breach.',
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
@@ -396,13 +401,13 @@ class _PwdCheckPageNEWWidgetState extends State<PwdCheckPageNEWWidget> {
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Icon(
-                                Icons.close_rounded,
+                                Icons.sports_score,
                                 color: Color(0xFFC4454D),
                                 size: 24.0,
                               ),
                               Expanded(
                                 child: Text(
-                                  'Common password pattern detected',
+                                  'Password Score : ',
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
@@ -429,25 +434,29 @@ class _PwdCheckPageNEWWidgetState extends State<PwdCheckPageNEWWidget> {
                             thickness: 1.0,
                             color: Color(0xFFEDE8DF),
                           ),
-                          Text(
-                            'Recommendations:',
-                            style: FlutterFlowTheme.of(context)
-                                .titleSmall
-                                .override(
-                                  font: GoogleFonts.inter(
+                          Align(
+                            alignment: AlignmentDirectional(-1.0, 0.0),
+                            child: Text(
+                              'Recommendations:',
+                              style: FlutterFlowTheme.of(context)
+                                  .titleSmall
+                                  .override(
+                                    font: GoogleFonts.inter(
+                                      fontWeight: FontWeight.w600,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .titleSmall
+                                          .fontStyle,
+                                    ),
+                                    color:
+                                        FlutterFlowTheme.of(context).secondary,
+                                    fontSize: 16.0,
+                                    letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,
                                     fontStyle: FlutterFlowTheme.of(context)
                                         .titleSmall
                                         .fontStyle,
                                   ),
-                                  color: Colors.white,
-                                  fontSize: 16.0,
-                                  letterSpacing: 0.0,
-                                  fontWeight: FontWeight.w600,
-                                  fontStyle: FlutterFlowTheme.of(context)
-                                      .titleSmall
-                                      .fontStyle,
-                                ),
+                            ),
                           ),
                           Column(
                             mainAxisSize: MainAxisSize.max,
